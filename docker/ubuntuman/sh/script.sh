@@ -1,3 +1,2 @@
-#!/bin/sh
-
-ssh 
+#!/bin/bash
+/usr/sbin/sshd -D
