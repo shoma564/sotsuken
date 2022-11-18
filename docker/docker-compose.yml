@@ -1,0 +1,20 @@
+version: '3'
+services:
+  python3:
+    restart: always
+    build: ./python
+    container_name: 'python3'
+    working_dir: '/root/'
+    tty: true
+
+  ubuntunmap:
+    restart: always
+    build: ./ubuntunmap
+    container_name: 'ubuntunmap'
+    tty: true
+
+  ubuntuman:
+    restart: always
+    build: ./ubuntuman
+    container_name: 'ubuntuman'
+    tty: true
