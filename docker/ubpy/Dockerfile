@@ -1,25 +1,22 @@
 FROM ubuntu:20.04
-USER root
+ADD ./sh/script.sh /etc/
 
-ADD ./python_hon/ /root/
+RUN apt-get -y update
+RUN apt-get -y install software-properties-common && add-apt-repository ppa:deadsnakes/ppa && apt-get -y install python3.9
 
-
-RUN apt-get update && apt-get install -y wget build-essential libreadline-dev libncursesw5-dev libssl-dev libsqlite3-dev libgdbm-dev libbz2-dev liblzma-dev zlib1g-dev uuid-dev libffi-dev libdb-dev vim less openssh-server python3 python3-pip
-RUN apt-get -y install locales && localedef -f UTF-8 -i ja_JP ja_JP.UTF-8
-ENV LANG ja_JP.UTF-8
-ENV LANGUAGE ja_JP:ja
-ENV LC_ALL ja_JP.UTF-8
-ENV TZ JST-9
-ENV TERM xterm
-
-RUN apt-get autoremove -y
+RUN apt-get -y install openssh-server
 
 
-RUN pip3 install paramiko
-RUN pip3 install --upgrade pip
-RUN pip3 install --upgrade setuptools
-RUN pip3 install paramiko
+RUN mkdir /etc/share/
+RUN mkdir /var/run/sshd
+RUN echo 'root:password' | chpasswd
+RUN sed -ri 's/^#?PermitRootLogin\s+.*/PermitRootLogin yes/' /etc/ssh/sshd_config
+RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
+
+ENV NOTVISIBLE "in users profile"
+RUN echo "export VISIBLE=now" >> /etc/profile
+
+EXPOSE 22
 
 
-
-CMD ["python3", "/root/sc.py"]
+CMD /etc/script.sh

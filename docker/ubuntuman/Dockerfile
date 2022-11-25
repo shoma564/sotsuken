@@ -4,6 +4,7 @@ ADD ./sh/script.sh /etc/
 RUN apt-get -y update && apt-get -y upgrade
 RUN apt-get -y install nmap openssh-server
 
+RUN mkdir /etc/share/
 RUN mkdir /var/run/sshd
 RUN echo 'root:password' | chpasswd
 RUN sed -ri 's/^#?PermitRootLogin\s+.*/PermitRootLogin yes/' /etc/ssh/sshd_config

@@ -6,13 +6,16 @@ services:
     container_name: 'python3'
     working_dir: /root/
     tty: true
-
+    volumes:
+      - ./share:/etc/share
 
   ubuntunmap:
     restart: always
     build: ./ubuntunmap
     container_name: 'ubuntunmap'
-    tty: true
+#    tty: true
+    volumes:
+      - ./share:/etc/share
 
 
   ubuntuman:
@@ -20,5 +23,7 @@ services:
     build: ./ubuntuman
     container_name: 'ubuntuman'
     tty: true
+    volumes:
+      - ./share:/etc/share
 
 
