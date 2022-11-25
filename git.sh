@@ -6,7 +6,7 @@ do
   mozi="自動プッシュ"
   su="回目のプッシュ完了"
   git add *
-  git commit -m '${mozi} ${today}'
+  git commit -m '$mozi $today'
   git push
   echo $kai$su
   kai=kai+1
