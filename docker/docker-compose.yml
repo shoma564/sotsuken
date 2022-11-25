@@ -10,10 +10,10 @@ services:
       - ./share:/etc/share
 
   ubuntunmap:
-    restart: always
+#    restart: always
     build: ./ubuntunmap
     container_name: 'ubuntunmap'
-#    tty: true
+    tty: true
     volumes:
       - ./share:/etc/share
 
