@@ -1,2 +1,2 @@
 22/tcp open  ssh     OpenSSH 8.2p1 Ubuntu 4 (Ubuntu Linux; protocol 2.0)
-TRACEROUTE (using port 1025/tcp)
+TRACEROUTE (using port 3306/tcp)

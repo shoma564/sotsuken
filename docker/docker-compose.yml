@@ -1,21 +1,35 @@
 version: '3'
 services:
   python3:
-    restart: always
+#    restart: always
     build: ./ubpy
     container_name: 'python3'
     working_dir: /root/
     tty: true
     volumes:
       - ./share:/etc/share
+    privileged: true
+    networks:
+      mgmt:
+        ipv4_address: 192.168.10.2
+      
+
+
+
 
   ubuntunmap:
 #    restart: always
     build: ./ubuntunmap
     container_name: 'ubuntunmap'
-#    tty: true
+    tty: true
     volumes:
       - ./share:/etc/share
+    privileged: true
+    networks:
+      mgmt:
+        ipv4_address: 192.168.10.3
+
+
 
 
   ubuntuman:
@@ -25,5 +39,15 @@ services:
     tty: true
     volumes:
       - ./share:/etc/share
+    networks:
+      mgmt:
+        ipv4_address: 192.168.10.4
 
 
+networks:
+  mgmt:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 192.168.10.0/24

@@ -3,4 +3,21 @@ ADD ./sh/script.sh /etc/
 RUN mkdir /etc/share/
 RUN apt-get -y update && apt-get -y upgrade
 RUN apt-get -y install nmap openssh-server
+
+
+RUN mkdir -p /etc/share/
+RUN mkdir -p /var/run/sshd
+RUN mkdir -p /run/sshd
+RUN ssh-keygen -A
+RUN echo 'root:password' | chpasswd
+RUN sed -ri 's/^#?PermitRootLogin\s+.*/PermitRootLogin yes/' /etc/ssh/sshd_config
+RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
+
+ENV NOTVISIBLE "in users profile"
+RUN echo "export VISIBLE=now" >> /etc/profile
+
+EXPOSE 22
+
+
+
 CMD ["/etc/script.sh"]
