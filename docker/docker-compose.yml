@@ -12,10 +12,6 @@ services:
     networks:
       mgmt:
         ipv4_address: 192.168.10.2
-      
-
-
-
 
   ubuntunmap:
 #    restart: always
@@ -28,9 +24,6 @@ services:
     networks:
       mgmt:
         ipv4_address: 192.168.10.3
-
-
-
 
   ubuntuman:
     restart: always
