@@ -1,0 +1,13 @@
+# import 
+
+def scan():
+	print("スキャンの対象は複数ホストですか？yes or no")
+	kai = input(">>> ")
+	if kai == "yes":
+		print("yes")
+	elif kai == "no":
+		print("no")
+	else:
+		print("予期せぬ文字列。入力しなおしてください。")
+
+scan()
