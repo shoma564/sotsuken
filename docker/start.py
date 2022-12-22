@@ -1,7 +1,7 @@
-import os, shutil
+import os, shutil, time, glob
 
-os.system('cd ./template && ./reset.sh')
-
+os.system('./template/reset.sh')
+print("初期化を終えました。情報を入力してください\n\n")
 def install():
 	docker = shutil.which("docker")
 	docker = str(docker)
@@ -50,8 +50,30 @@ def docker():
 
 
 ###### ./share/result.txtが出来上がるまで、無限ループで参照し続ける。もし、存在が確認されたら、処理終了。
+def result_exist():
+	path = "./share/result.txt"
+	is_file = os.path.isfile(path)
+	print(is_file)
+	files = glob.glob("./share/*")
+	while True:
+		for file in files:
+			print(file)
+		if is_file:
+			is_size = os.path.getsize(path)
+			print("ファイルが作成されました")
+			if is_size != 0:
+				os.system('cat ./share/result.txt')
+				break
+		else:
+			pass
+		print("サービスのスキャン中")
+		time.sleep(5)
+
+
+
 
 
 install()
 scan()
 docker()
+result_exist()
