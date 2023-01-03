@@ -1,7 +1,10 @@
 import os, shutil, time, glob
 
-os.system('./template/reset.sh')
-print("初期化を終えました。情報を入力してください\n\n")
+def shoki():
+	os.system('./template/reset.sh')
+	print("初期化を終えました。情報を入力してください\n\n")
+
+
 def install():
 	docker = shutil.which("docker")
 	docker = str(docker)

@@ -1,13 +1,80 @@
-# import 
+import os, shutil, time, glob
+
+os.system('./template/reset.sh')
+print("初期化を終えました。情報を入力してください\n\n")
+def install():
+	docker = shutil.which("docker")
+	docker = str(docker)
+	if docker == "None":
+		os.system('apt -y update')
+		os.system('apt -y install docker')
+
+	dockerc = shutil.which("docker-compose")
+	dockerc = str(dockerc)
+	if dockerc == "None":
+		os.system('apt -y update')
+		os.system('apt -y install docker-compose')
 
 def scan():
-	print("スキャンの対象は複数ホストですか？yes or no")
-	kai = input(">>> ")
-	if kai == "yes":
-		print("yes")
-	elif kai == "no":
-		print("no")
-	else:
-		print("予期せぬ文字列。入力しなおしてください。")
+	file_name = "./ubuntunmap/sh/script.sh"
+	while True:
+		print("スキャンの対象は複数ホストですか？yes or no")
+		kai = input(">>> ")
+		if kai == "yes":
+			print("マルチノードのスキャンを行います。スキャン対象のネットワークアドレスを入力してください。CIDR形式でサブネットの入力をしてください。")
+			scanip = input(">>>")
+			with open(file_name, encoding="cp932") as f:
+				data_lines = f.read()
+			data_lines = data_lines.replace("0.0.0.0", scanip)
+			with open(file_name, mode="w", encoding="cp932") as f:
+				f.write(data_lines)
+			break
 
+		elif kai == "no":
+			print("シングルノードのスキャンを行います。スキャン対象のIPアドレスを入力してください。サブネットの入力は必要ありません。")
+			scanip = input(">>>")
+			with open(file_name, encoding="cp932") as f:
+				data_lines = f.read()
+			data_lines = data_lines.replace("0.0.0.0", scanip)
+			with open(file_name, mode="w", encoding="cp932") as f:
+				 f.write(data_lines)
+			break
+		else:
+			print("予期せぬ入力がありました。再実行します")
+
+
+def docker():
+	os.system('docker-compose build')
+	os.system('docker-compose up -d')
+
+
+
+###### ./share/result.txtが出来上がるまで、無限ループで参照し続ける。もし、存在が確認されたら、処理終了。
+def result_exist():
+	path = "./share/result.txt"
+	is_file = os.path.isfile(path)
+	print(is_file)
+	files = glob.glob("./share/*")
+	while True:
+                files = glob.glob("./share/*")
+		for file in files:
+			print(file)
+		if is_file:
+			is_size = os.path.getsize(path)
+			print("ファイルが作成されました")
+			if is_size != 0:
+				os.system('cat ./share/result.txt')
+				break
+		else:
+			pass
+		print("サービスのスキャン中")
+		time.sleep(5)
+
+
+
+
+
+install()
 scan()
+docker()
+result_exist()
