@@ -11,7 +11,7 @@ do
   git checkout main
   git add /home/shoma/sotsuken/*
   git commit -m "${today}"
-  git push main
+  git push
   echo $kai$su
   kai=kai+1
   sleep 1200
