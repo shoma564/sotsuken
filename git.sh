@@ -6,8 +6,9 @@ do
   mozi="自動プッシュ"
   su="回目のプッシュ完了"
   echo ${mozi} ${today}
+  git checkout main
   git add /home/shoma/sotsuken/*
-  git commit -m '${mozi} ${today}'
+  git commit -m "${today}"
   git push main
   echo $kai$su
   kai=kai+1
