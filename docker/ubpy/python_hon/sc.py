@@ -2,7 +2,7 @@ import paramiko
 import time
 import paramiko
 import socket
-
+import os, glob
 
 time.sleep(10)
 with paramiko.SSHClient() as client:
@@ -64,14 +64,15 @@ def result_exist():
             print(file)
         if is_file:
             is_size = os.path.getsize(path)
-            print("ファイルが作成されました")
             if is_size != 0:
                 os.system('cat ./share/result.txt')
+                print("ファイルが作成されました")
                 break
             else:
                 pass
-            print("マージ元ファイルの待機中")
-            time.sleep(5)
+
+        print("マージ元ファイルの待機中")
+        time.sleep(5)
 
     filenames = ["result1.txt", "result.txt"]
 
