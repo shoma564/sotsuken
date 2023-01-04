@@ -53,6 +53,7 @@ def docker():
 
 
 ###### ./share/result.txtが出来上がるまで、無限ループで参照し続ける。もし、存在が確認されたら、処理終了。
+
 def result_exist():
 	path = "./share/result.txt"
 	is_file = os.path.isfile(path)

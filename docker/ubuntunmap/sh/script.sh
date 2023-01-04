@@ -10,5 +10,4 @@ nmap -T4 -A 172.24.20.100 >> /etc/nmap.txt
 grep 'tcp' /etc/nmap.txt > /etc/result.txt
 cat /etc/result.txt
 cp /etc/result.txt /etc/share/
-
 /usr/sbin/sshd -D

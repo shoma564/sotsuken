@@ -82,3 +82,6 @@ def result_exist():
                     new_file.write(line)
 
                 new_file.write("\n")
+
+
+result_exist()
