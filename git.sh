@@ -1,4 +1,6 @@
 #!/bin/bash
+cd `dirname $0`
+
 while true
 do
   kai=1
@@ -16,3 +18,4 @@ do
   kai=kai+1
   sleep 1200
 done
+
