@@ -7,6 +7,7 @@ do
   su="回目のプッシュ完了"
   echo ${mozi} ${today}
   git remote add origin git@github.com:shoma564/sotsuken.git
+  git remote -v
   git checkout main
   git add /home/shoma/sotsuken/*
   git commit -m "${today}"
