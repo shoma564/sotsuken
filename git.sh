@@ -6,6 +6,7 @@ do
   mozi="自動プッシュ"
   su="回目のプッシュ完了"
   echo ${mozi} ${today}
+  ssh-add -K ~/.ssh/id_rsa
   git checkout main
   git add /home/shoma/sotsuken/*
   git commit -m "${today}"
