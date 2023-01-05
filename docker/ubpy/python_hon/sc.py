@@ -74,8 +74,7 @@ def result_exist():
         print("マージ元ファイルの待機中")
         time.sleep(5)
 
-    filenames = ["result1.txt", "result.txt"]
-
+    filenames = ["./share/result1.txt", "./share/result.txt"]
     with open("mg_result.txt", "w") as new_file:
         for name in filenames:
             with open(name) as f:
