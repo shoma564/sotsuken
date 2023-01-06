@@ -33,13 +33,13 @@ def scan():
 				data_lines = f.read()
 				data_lines = data_lines.replace("qwertyuser", sshuser)
 
-			with open(file_name, mode="w", encoding="cp932") as f:
+			with open("./ubpy/python_hon/sc.py", mode="w", encoding="cp932") as f:
 				f.write(data_lines)
 
 			print("Passwordの入力")
 			sshpass = input(">>>")
 
-			with open(./docker/ubpy/python_hon/sc.py, encoding="cp932") as f:
+			with open("./ubpy/python_hon/sc.py", encoding="cp932") as f:
 				data_lines = f.read()
 				data_lines = data_lines.replace("qwerty", sshpass)
 
@@ -47,7 +47,7 @@ def scan():
 				f.write(data_lines)
 
 
-			with open(./docker/ubpy/python_hon/sc.py, encoding="cp932") as f:
+			with open("./ubpy/python_hon/sc.py", encoding="cp932") as f:
 				data_lines = f.read()
 			data_lines = data_lines.replace("0.0.0.0", scanip)
 			with open(docker/ubpy/python_hon/sc.py, mode="w", encoding="cp932") as f:
