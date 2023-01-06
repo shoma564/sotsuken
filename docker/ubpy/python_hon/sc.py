@@ -1,15 +1,11 @@
-import paramiko
-import time
-import paramiko
-import socket
-import os, glob
+import paramiko, time, socket, os, glob
 
 time.sleep(10)
 with paramiko.SSHClient() as client:
 
-    HOSTNAME = '172.24.20.125'
-    USERNAME = 'hiyiir'
-    PASSWORD = 'hiyiirpass'
+    HOSTNAME = '0.0.0.0'
+    USERNAME = 'qwertyuser'
+    PASSWORD = 'qwertypass'
     LINUX_COMMAND = 'pwd'
 
     client = paramiko.SSHClient()
@@ -57,14 +53,6 @@ with paramiko.SSHClient() as client:
         for line in stdout:
             print(line, end='', file=f)
 
-#for port in range(1,1023):
-#    #target_host Ì|[gÔportÉÚ±ðs
-#    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-#    result = sock.connect_ex((HOSTNAME, port))
-#    sock.close()
-    #socket.connect_ex Í¬÷·éÆ0ðÔ·
-#    if result == 0:
-#        print("Port %d open!" % (port))
 
 def result_exist():
     path = "./share/result.txt"
@@ -78,12 +66,12 @@ def result_exist():
             is_size = os.path.getsize(path)
             if is_size != 0:
                 os.system('cat ./share/result.txt')
-                print("t@Cªì¬³êÜµ½")
+                print("ファイルが作成されました。")
                 break
             else:
                 pass
 
-        print("}[W³t@CÌÒ@")
+        print("マージ元ファイルの待機中")
         time.sleep(5)
 
     filenames = ["./share/result1.txt", "./share/result.txt"]

@@ -57,7 +57,7 @@ def scan():
 
 			with open("./ubpy/python_hon/sc.py") as f:
 				data_lines = f.read()
-				data_lines = data_lines.replace("qwerty", sshpass)
+				data_lines = data_lines.replace("qwertypass", sshpass)
 
 			with open("./ubpy/python_hon/sc.py", mode="w", encoding="utf-8") as f:
 				f.write(data_lines)
