@@ -8,8 +8,8 @@ time.sleep(10)
 with paramiko.SSHClient() as client:
 
     HOSTNAME = '172.24.20.125'
-    USERNAME = 'qwerty'
-    PASSWORD = 'qwertypass'
+    USERNAME = 'hiyiir'
+    PASSWORD = 'hiyiirpass'
     LINUX_COMMAND = 'pwd'
 
     client = paramiko.SSHClient()
@@ -58,11 +58,11 @@ with paramiko.SSHClient() as client:
             print(line, end='', file=f)
 
 #for port in range(1,1023):
-#    #target_host �̃|�[�g�ԍ�port�ɐڑ������s
+#    #target_host Ì|[gÔportÉÚ±ðs
 #    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 #    result = sock.connect_ex((HOSTNAME, port))
 #    sock.close()
-    #socket.connect_ex �͐��������0��Ԃ�
+    #socket.connect_ex Í¬÷·éÆ0ðÔ·
 #    if result == 0:
 #        print("Port %d open!" % (port))
 
@@ -78,12 +78,12 @@ def result_exist():
             is_size = os.path.getsize(path)
             if is_size != 0:
                 os.system('cat ./share/result.txt')
-                print("�t�@�C�����쐬����܂���")
+                print("t@Cªì¬³êÜµ½")
                 break
             else:
                 pass
 
-        print("�}�[�W���t�@�C���̑ҋ@��")
+        print("}[W³t@CÌÒ@")
         time.sleep(5)
 
     filenames = ["./share/result1.txt", "./share/result.txt"]
