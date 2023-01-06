@@ -26,6 +26,12 @@ def scan():
 		if kai == "yes":
 			print("マルチノードのスキャンを行います。スキャン対象のネットワークアドレスを入力してください。CIDR形式でサブネットの入力をしてください。")
 			scanip = input(">>>")
+                        print("User名の入力")
+                        sshuser = input(">>>")
+                        print("Passwordの入力")
+                        scanip = input(">>>")
+
+
 			with open(file_name, encoding="cp932") as f:
 				data_lines = f.read()
 			data_lines = data_lines.replace("0.0.0.0", scanip)

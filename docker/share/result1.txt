@@ -12,3 +12,8 @@ PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-poli
 VERSION_CODENAME=focal
 UBUNTU_CODENAME=focal
 shoma
+MemTotal:        4025600 kB
+processor	: 0
+processor	: 1
+processor	: 2
+processor	: 3

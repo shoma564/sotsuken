@@ -8,8 +8,8 @@ time.sleep(10)
 with paramiko.SSHClient() as client:
 
     HOSTNAME = '172.24.20.125'
-    USERNAME = 'shoma'
-    PASSWORD = 'password'
+    USERNAME = 'qwertyuser'
+    PASSWORD = 'qwertypass'
     LINUX_COMMAND = 'pwd'
 
     client = paramiko.SSHClient()
