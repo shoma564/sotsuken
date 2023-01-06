@@ -9,7 +9,7 @@ with paramiko.SSHClient() as client:
 
     HOSTNAME = '172.24.20.125'
     USERNAME = 'shoma'
-    PASSWORD = 'hiyiir'
+    PASSWORD = 'password'
     LINUX_COMMAND = 'pwd'
 
     client = paramiko.SSHClient()
@@ -44,6 +44,18 @@ with paramiko.SSHClient() as client:
             print(line, end='', file=f)
 
 
+        time.sleep(1)
+        LINUX_COMMAND = 'cat /proc/meminfo | grep MemTotal'
+        stdin, stdout, stderr = client.exec_command(LINUX_COMMAND)
+        for line in stdout:
+            print(line, end='', file=f)
+
+
+        time.sleep(1)
+        LINUX_COMMAND = 'cat /proc/cpuinfo | grep processor'
+        stdin, stdout, stderr = client.exec_command(LINUX_COMMAND)
+        for line in stdout:
+            print(line, end='', file=f)
 
 #for port in range(1,1023):
 #    #target_host のポート番号portに接続を試行
