@@ -49,17 +49,17 @@ def scan():
 				data_lines = f.read()
 				data_lines = data_lines.replace("qwertyuser", sshuser)
 
-			with open("./ubpy/python_hon/sc.py", mode="w", encoding="cp932") as f:
+			with open("./ubpy/python_hon/sc.py", mode="w", encoding="shift-jis") as f:
 				f.write(data_lines)
 
 			print("Passwordの入力")
 			sshpass = input(">>>")
 
-			with open("./ubpy/python_hon/sc.py", encoding="cp932") as f:
+			with open("./ubpy/python_hon/sc.py") as f:
 				data_lines = f.read()
 				data_lines = data_lines.replace("qwerty", sshpass)
 
-			with open(file_name, mode="w", encoding="cp932") as f:
+			with open("./ubpy/python_hon/sc.py", mode="w", encoding="shift-jis") as f:
 				f.write(data_lines)
 
 			break
