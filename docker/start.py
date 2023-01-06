@@ -49,7 +49,7 @@ def scan():
 				data_lines = f.read()
 				data_lines = data_lines.replace("qwertyuser", sshuser)
 
-			with open("./ubpy/python_hon/sc.py", mode="w", encoding="shift-jis") as f:
+			with open("./ubpy/python_hon/sc.py", mode="w", encoding="utf-8") as f:
 				f.write(data_lines)
 
 			print("Passwordの入力")
@@ -59,7 +59,7 @@ def scan():
 				data_lines = f.read()
 				data_lines = data_lines.replace("qwerty", sshpass)
 
-			with open("./ubpy/python_hon/sc.py", mode="w", encoding="shift-jis") as f:
+			with open("./ubpy/python_hon/sc.py", mode="w", encoding="utf-8") as f:
 				f.write(data_lines)
 
 			break
