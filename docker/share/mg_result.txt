@@ -17,3 +17,11 @@ processor	: 0
 processor	: 1
 processor	: 2
 processor	: 3
+
+22/tcp   open  ssh     OpenSSH 8.2p1 Ubuntu 4ubuntu0.5 (Ubuntu Linux; protocol 2.0)
+3306/tcp open  mysql?
+TRACEROUTE (using port 443/tcp)
+22/tcp   open  ssh     OpenSSH 8.2p1 Ubuntu 4ubuntu0.5 (Ubuntu Linux; protocol 2.0)
+3306/tcp open  mysql?
+TRACEROUTE (using port 199/tcp)
+
