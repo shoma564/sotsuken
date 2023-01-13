@@ -96,7 +96,22 @@ def result_exist():
 
 
 def result_mg_exist():
-	path = "./share/"
+	path = "./share/mg_result.txt"
+	is_file = os.path.isfile(path)
+	print(is_file)
+	files = glob.glob("./share/*")
+	while True:
+		for file in files:
+			print(file)
+		if is_file:
+			is_size = os.path.getsize(path)
+			print("マージファイルの作成を検出")
+			if is_size != 0:
+				break
+		else:
+			pass
+		print("マージファイルの待機中")
+		time.sleep(20)
 
 
 
