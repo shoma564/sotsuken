@@ -12,7 +12,7 @@ for number in range(6):
 	print(".")
 print("\n\n")
 
-#==================================サービスの検出=========================================
+#================================== サービスの検出 =========================================
 def check_mysql():
     with open('./share/mg_result.txt') as temp_f:
         datafile = temp_f.readlines()
@@ -40,7 +40,7 @@ def check_apache():
     return False
 
 
-#====================================サービスの移行=======================================================
+#==================================== サービスの移行 =======================================================
 def syu():
     global HOSTNAME
     global USERNAME
@@ -58,13 +58,15 @@ def syu():
 def mysql():
     global HOSTNAME
     print("mysqlの移行を開始します。")
+    print("mysqlが動いているIPアドレス")
+    hostip = input(">>> ")
     print("mysqlデータベースのユーザー名")
     mysqluser = input(">>> ")
     print("移行するデータベース名")
     mysqlname = input(">>> ")
     print("パスワードを入力する")
     mysqlpass = input(">>> ")
-    mycommand1 = "mysqldump -u " + str(mysqluser) + " -p " + str(mysqlpass) + " -r " + str(mysqlname) + " --single-transaction " + str(mysqlname) + " -h " + str(HOSTNAME)
+    mycommand1 = "mysqldump -u " + str(mysqluser) + " -p " + str(mysqlpass) + " -r " + str(mysqlname) + " --single-transaction " + str(mysqlname) + " -h " + str(hostip)
     print(mycommand1)
 
     with paramiko.SSHClient() as client:
@@ -83,7 +85,7 @@ def mysql():
 
 
 
-#=======================================main===============================================================
+#======================================= main ===============================================================
 syu()
 check_mysql()
 check_nginx()
