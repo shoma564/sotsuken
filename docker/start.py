@@ -95,6 +95,10 @@ def result_exist():
 		time.sleep(5)
 
 
+def result_mg_exist():
+	path = "./share/"
+
+
 
 
 
