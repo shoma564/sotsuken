@@ -38,23 +38,27 @@ def check_apache():
 #====================================サービスの移行=======================================================
 def syu():
     print("移行先の情報を収集します。")
+    print("移行先ホストのIPアドレスを入力")
+    hostip = input(">>> ")
+    print("移行先ホストのユーザー名")
+    hostuser = input(">>> ")
 
 
 def mysql():
     print("mysqlの移行を開始します。")
     print("mysqlデータベースのユーザー名")
-    mysqluser = input()
+    mysqluser = input(">>> ")
     print("移行するデータベース名")
-    mysqlname = input()
+    mysqlname = input(">>> ")
     print("パスワードを入力する")
-    mysqlpass = input()
-    mycommand1 = "mysqldump -u" + str(mysqluser) + "-p" + str(mysqlpass) + "-r" + str(mysqlname) + "--single-transaction" + str(mysqlname)
+    mysqlpass = input(">>> ")
+    mycommand1 = "mysqldump -u " + str(mysqluser) + " -p " + str(mysqlpass) + " -r " + str(mysqlname) + " --single-transaction " + str(mysqlname)
     print(mycommand1)
 
 
 
-#======================================================================================================
 
+#=======================================main===============================================================
 check_mysql()
 check_nginx()
 check_apache()
