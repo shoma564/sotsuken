@@ -102,7 +102,7 @@ def mysql():
 
     with paramiko.SSHClient() as client:
 
-        LINUX_COMMAND = "mysql -u " + str()
+        LINUX_COMMAND = "mysql -u " + str(mysqluser)
 
         client = paramiko.SSHClient()
         client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
