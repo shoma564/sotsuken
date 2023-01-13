@@ -82,7 +82,7 @@ def mysql():
     for line in stdout:
         print(line, end='')
 
-    sleep(1)
+    time.sleep(1)
 
     with paramiko.SSHClient() as client:
 
@@ -97,10 +97,12 @@ def mysql():
     for line in stdout:
         print(line, end='')
 
+    time.sleep(1)
+
 
     with paramiko.SSHClient() as client:
 
-        LINUX_COMMAND = "mysql "
+        LINUX_COMMAND = "mysql -u " + str()
 
         client = paramiko.SSHClient()
         client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
