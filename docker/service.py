@@ -1,4 +1,9 @@
-import time
+import time, paramiko
+HOSTNAME = ""
+USERNAME = ""
+PASSWORD = ""
+
+
 
 print("検出サービスの整理中")
 
@@ -37,11 +42,17 @@ def check_apache():
 
 #====================================サービスの移行=======================================================
 def syu():
+    global HOSTNAME
+    global USERNAME
+    global PASSWORD
+
     print("移行先の情報を収集します。")
     print("移行先ホストのIPアドレスを入力")
-    hostip = input(">>> ")
+    HOSTNAME = input(">>> ")
     print("移行先ホストのユーザー名")
-    hostuser = input(">>> ")
+    USERNAME = input(">>> ")
+    print("パスワードの入力")
+    PASSWORD = input(">>> ")
 
 
 def mysql():
@@ -53,7 +64,20 @@ def mysql():
     print("パスワードを入力する")
     mysqlpass = input(">>> ")
     mycommand1 = "mysqldump -u " + str(mysqluser) + " -p " + str(mysqlpass) + " -r " + str(mysqlname) + " --single-transaction " + str(mysqlname)
-    print(mycommand1)
+    #print(mycommand1)
+
+    with paramiko.SSHClient() as client:
+
+        LINUX_COMMAND = 'pwd'
+
+        client = paramiko.SSHClient()
+        client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+        client.connect(hostname=HOSTNAME, port=22, username=USERNAME, password=PASSWORD)
+
+        stdin, stdout, stderr = client.exec_command(LINUX_COMMAND)
+
+    for line in stdout:
+        print(line, end='')
 
 
 
