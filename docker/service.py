@@ -56,6 +56,7 @@ def syu():
 
 
 def mysql():
+    global HOSTNAME
     print("mysqlの移行を開始します。")
     print("mysqlデータベースのユーザー名")
     mysqluser = input(">>> ")
@@ -63,8 +64,8 @@ def mysql():
     mysqlname = input(">>> ")
     print("パスワードを入力する")
     mysqlpass = input(">>> ")
-    mycommand1 = "mysqldump -u " + str(mysqluser) + " -p " + str(mysqlpass) + " -r " + str(mysqlname) + " --single-transaction " + str(mysqlname)
-    #print(mycommand1)
+    mycommand1 = "mysqldump -u " + str(mysqluser) + " -p " + str(mysqlpass) + " -r " + str(mysqlname) + " --single-transaction " + str(mysqlname) + " -h " + str(HOSTNAME)
+    print(mycommand1)
 
     with paramiko.SSHClient() as client:
 
