@@ -66,7 +66,7 @@ def mysql():
     mysqlname = input(">>> ")
     print("パスワードを入力する")
     mysqlpass = input(">>> ")
-    mycommand1 = "mysqldump -u " + str(mysqluser) + " -p " + str(mysqlpass) + " -r " + str(mysqlname) + " --single-transaction " + str(mysqlname) + " -h " + str(hostip)
+    mycommand1 = "mysqldump -u " + str(mysqluser) + " -p " + str(mysqlpass) + " -r " + str(mysqlname) + " -h " + str(hostip) + " --single-transaction " + str(mysqlname)
     print(mycommand1)
 
     with paramiko.SSHClient() as client:
@@ -102,7 +102,8 @@ def mysql():
 
     with paramiko.SSHClient() as client:
 
-        LINUX_COMMAND = "mysql -u " + str(mysqluser)
+        LINUX_COMMAND = "mysql -u " + str(mysqluser) + " -p " + str(mysqlpass) + " -h " + str(HOSTNAME) + " < " + str(mysqlname)
+        print(LINUX_COMMAND)
 
         client = paramiko.SSHClient()
         client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
