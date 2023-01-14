@@ -2,6 +2,10 @@ import time, paramiko
 HOSTNAME = ""
 USERNAME = ""
 PASSWORD = ""
+hostip = ""
+mysqluser = ""
+mysqlname = ""
+mysqlpass = ""
 
 
 
@@ -42,9 +46,7 @@ def check_apache():
 
 #==================================== サービスの移行 =======================================================
 def syu():
-    global HOSTNAME
-    global USERNAME
-    global PASSWORD
+    global HOSTNAME, USERNAME, PASSWORD
 
     print("移行先の情報を収集します。")
     print("移行先ホストのIPアドレスを入力")
@@ -56,7 +58,7 @@ def syu():
 
 
 def mysql():
-    global HOSTNAME
+    global HOSTNAME, USERNAME, PASSWORD, hostip, mysqluser, mysqlname, mysqlpass
     print("mysqlの移行を開始します。")
     print("mysqlが動いているIPアドレス")
     hostip = input(">>> ")
