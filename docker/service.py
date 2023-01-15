@@ -68,7 +68,7 @@ def mysql():
     mysqlname = input(">>> ")
     print("パスワードを入力する")
     mysqlpass = input(">>> ")
-    mycommand1 = "mysqldump -u " + str(mysqluser) + " -p " + str(mysqlpass) + " -r " + str(mysqlname) + " -h " + str(hostip) + " --single-transaction " + str(mysqlname)
+    mycommand1 = "mysqldump -u" + str(mysqluser) + " -p" + str(mysqlpass) + " -r" + str(mysqlname) + " -h" + str(hostip) + " --single-transaction " + str(mysqlname)
     print(mycommand1)
 
     with paramiko.SSHClient() as client:
