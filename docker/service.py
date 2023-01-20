@@ -73,7 +73,7 @@ def mysql():
 
     with paramiko.SSHClient() as client:
 
-        LINUX_COMMAND = "apt -y update && apt -y install mysql-client-core-8.0"
+        LINUX_COMMAND = "apt -y update && apt -y install mysql-server && apt -y install mysql-client-core-8.0"
 
         client = paramiko.SSHClient()
         client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
