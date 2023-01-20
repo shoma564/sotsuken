@@ -84,7 +84,7 @@ def mysql():
     for line in stdout:
         print(line, end='')
 
-    time.sleep(1)
+    time.sleep(100)
 
     with paramiko.SSHClient() as client:
 
