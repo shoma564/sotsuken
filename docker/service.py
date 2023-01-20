@@ -103,7 +103,7 @@ def mysql():
 
     with paramiko.SSHClient() as client:
 
-        LINUX_COMMAND = "mysql -u " + str(mysqluser) + " -p " + str(mysqlpass) + " -h " + str(HOSTNAME) + "-e create database " + str(mysqlname) 
+        LINUX_COMMAND = "mysql -u " + str(mysqluser) + " -p " + str(mysqlpass) + " -h " + str(HOSTNAME) + " -e create database " + str(mysqlname) 
         print(LINUX_COMMAND)
         client = paramiko.SSHClient()
         client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
