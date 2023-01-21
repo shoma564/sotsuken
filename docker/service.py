@@ -89,7 +89,7 @@ def mysql():
 
     with paramiko.SSHClient() as client:
 
-        LINUX_COMMAND = LINUX_COMMAND = "wget https://raw.githubusercontent.com/shoma564/sotsuken/main/docker/template/app/mysqld.cnf?token=GHSAT0AAAAAAB3B4MU7PCHQFSUEF7YOEPHMY6LU6LQ -O/etc/mysql/mysql.conf.d/mysqld.cnf && sleep 1 && service mysql restart"
+        LINUX_COMMAND = LINUX_COMMAND = "wget https://raw.githubusercontent.com/shoma564/sotsuken/main/docker/template/app/mysqld.cnf?token=GHSAT0AAAAAAB3B4MU7PCHQFSUEF7YOEPHMY6LU6LQ -O /etc/mysql/mysql.conf.d/mysqld.cnf && sleep 1 && service mysql restart"
 
         client = paramiko.SSHClient()
         client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
@@ -123,9 +123,9 @@ def mysql():
 
         #LINUX_COMMAND = "mysql -u " + str(mysqluser) + " -p " + str(mysqlpass) + " -h " + str(HOSTNAME) + " -e create database " + str(mysqlname)
         if mysqluser == "root" or mysqlpass == "":
-            LINUX_COMMAND = "mysql -u " + str(mysqluser) + " -e create database \"" + str(mysqlname) + "\""
+            LINUX_COMMAND = "mysql -u " + str(mysqluser) + " -e \"create database " + str(mysqlname) + "\""
         else:
-            LINUX_COMMAND = "mysql -u " + str(mysqluser) + " -p " + str(mysqlpass) + " -e create database \"" + str(mysqlname) + "\""
+            LINUX_COMMAND = "mysql -u " + str(mysqluser) + " -p " + str(mysqlpass) + " -e \"create database " + str(mysqlname) + "\""
 
         print(LINUX_COMMAND)
         client = paramiko.SSHClient()
@@ -143,9 +143,9 @@ def mysql():
 
         #LINUX_COMMAND = "mysql -u " + str(mysqluser) + " -p " + str(mysqlpass) + " -h " + str(HOSTNAME) + " < " + str(mysqlname)
         if mysqluser == "root" or mysqlpass == "":
-            LINUX_COMMAND = "mysql -u " + " < /etc/" + str(mysqlname)
+            LINUX_COMMAND = "mysql -u " + str(mysqluser) + " -D " + str(mysqlname) + " < /etc/" + str(mysqlname)
         else:
-            LINUX_COMMAND = "mysql -u " + str(mysqluser) + " -p " + str(mysqlpass) + " -h " + str(HOSTNAME) + " < " + "/etc/" + str(mysqlname)
+            LINUX_COMMAND = "mysql -u " + str(mysqluser) + " -p " + str(mysqlpass) + " -h " + str(HOSTNAME) + "-D " + str(mysqlname) + " < " + "/etc/" + str(mysqlname)
         print(LINUX_COMMAND)
 
         client = paramiko.SSHClient()
