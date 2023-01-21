@@ -160,6 +160,24 @@ def mysql():
     time.sleep(1)
 
 
+def apache()
+    print("apacheの移行を開始します。")
+        with paramiko.SSHClient() as client:
+        LINUX_COMMAND = "apt -y update && apt -y install ufw apache2 && sleep3 && ufw allow 'Apache' && systemctl restart apache2"
+        print(LINUX_COMMAND)
+
+        client = paramiko.SSHClient()
+        client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+        client.connect(hostname=HOSTNAME, port=22, username=USERNAME, password=PASSWORD)
+
+        stdin, stdout, stderr = client.exec_command(LINUX_COMMAND)
+
+    for line in stdout:
+        print(line, end='')
+
+    time.sleep(1)
+
+
 
 
 #======================================= main ===============================================================
@@ -171,19 +189,19 @@ check_apache()
 
 
 if check_mysql():
-    print('Mysql_True')
+    print('Mysql_True:Mysqlが検出されました')
     mysql()
 else:
-    print('Mysql_False')
+    print('Mysql_False:Mysqlが検出されませんでした')
 
 if check_nginx():
-    print('nginx_True')
+    print('nginx_True:nginxが検出されました')
     nginx()
 else:
-    print('nginx_False')
+    print('nginx_False:nginxが検出されませんでした')
 
 if check_apache():
-    print('apache_True')
+    print('apache_True:Apacheが検出されました')
     apache()
 else:
-    print('apache_False')
+    print('apache_False:Apacheが検出されませんでした')
