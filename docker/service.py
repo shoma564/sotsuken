@@ -161,7 +161,14 @@ def mysql():
 
 
 def apache()
+    global HOSTNAME, USERNAME, PASSWORD, aphostip, appass
+
     print("apacheの移行を開始します。")
+    print("apacheが動いているIPアドレス")
+    aphostip = input(">>> ")
+    print("apacheが動いているホストのパスワード")
+    appass = input(">>> ")
+
         with paramiko.SSHClient() as client:
         LINUX_COMMAND = "apt -y update && apt -y install ufw apache2 && sleep3 && ufw allow 'Apache' && systemctl restart apache2"
         print(LINUX_COMMAND)
