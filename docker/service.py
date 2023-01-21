@@ -89,7 +89,7 @@ def mysql():
 
     with paramiko.SSHClient() as client:
 
-        LINUX_COMMAND = LINUX_COMMAND = "wget https://raw.githubusercontent.com/shoma564/sotsuken/main/docker/template/app/mysqld.cnf?token=GHSAT0AAAAAAB3B4MU7PCHQFSUEF7YOEPHMY6LU6LQ -P /etc/mysql/mysql.conf.d/mysql.cnf -O mysql.cnf && sleep 1 && service restart mysql"
+        LINUX_COMMAND = LINUX_COMMAND = "wget https://raw.githubusercontent.com/shoma564/sotsuken/main/docker/template/app/mysqld.cnf?token=GHSAT0AAAAAAB3B4MU7PCHQFSUEF7YOEPHMY6LU6LQ -O/etc/mysql/mysql.conf.d/mysqld.cnf && sleep 1 && service mysql restart"
 
         client = paramiko.SSHClient()
         client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
