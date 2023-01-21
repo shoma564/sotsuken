@@ -59,7 +59,8 @@ def syu():
 
 def mysql():
     global HOSTNAME, USERNAME, PASSWORD, hostip, mysqluser, mysqlname, mysqlpass
-    print("mysqlの移行を開始します。")
+
+    print("\n\n\nmysqlの移行を開始します。")
     print("mysqlが動いているIPアドレス")
     hostip = input(">>> ")
     print("mysqlデータベースのユーザー名")
@@ -73,7 +74,7 @@ def mysql():
 
     with paramiko.SSHClient() as client:
 
-        LINUX_COMMAND = "apt -y update && apt -y install mysql-server && apt -y install mysql-client-core-8.0"
+        LINUX_COMMAND = "apt -y update"
 
         client = paramiko.SSHClient()
         client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
@@ -84,7 +85,37 @@ def mysql():
     for line in stdout:
         print(line, end='')
 
-    time.sleep(100)
+    time.sleep(1)
+
+    with paramiko.SSHClient() as client:
+
+        LINUX_COMMAND = "apt -y install mysql-server"
+
+        client = paramiko.SSHClient()
+        client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+        client.connect(hostname=HOSTNAME, port=22, username=USERNAME, password=PASSWORD)
+
+        stdin, stdout, stderr = client.exec_command(LINUX_COMMAND)
+
+    for line in stdout:
+        print(line, end='')
+
+    time.sleep(1)
+
+    with paramiko.SSHClient() as client:
+
+        LINUX_COMMAND = "apt -y install mysql-client-core-8.0"
+
+        client = paramiko.SSHClient()
+        client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+        client.connect(hostname=HOSTNAME, port=22, username=USERNAME, password=PASSWORD)
+
+        stdin, stdout, stderr = client.exec_command(LINUX_COMMAND)
+
+    for line in stdout:
+        print(line, end='')
+
+    time.sleep(1)
 
     with paramiko.SSHClient() as client:
 
@@ -114,6 +145,7 @@ def mysql():
     for line in stdout:
         print(line, end='')
 
+    time.sleep(1)
 
     with paramiko.SSHClient() as client:
 
@@ -128,6 +160,8 @@ def mysql():
 
     for line in stdout:
         print(line, end='')
+
+    time.sleep(1)
 
 
 
