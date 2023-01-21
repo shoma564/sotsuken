@@ -122,7 +122,7 @@ def mysql():
     with paramiko.SSHClient() as client:
 
         #LINUX_COMMAND = "mysql -u " + str(mysqluser) + " -p " + str(mysqlpass) + " -h " + str(HOSTNAME) + " -e create database " + str(mysqlname)
-        if mysqluser == "root" or mysqlpass == "": 
+        if mysqluser == "root" or mysqlpass == "":
             LINUX_COMMAND = "mysql -u " + str(mysqluser) + " -e create database \"" + str(mysqlname) + "\""
         else:
             LINUX_COMMAND = "mysql -u " + str(mysqluser) + " -p " + str(mysqlpass) + " -e create database \"" + str(mysqlname) + "\""
@@ -141,7 +141,11 @@ def mysql():
 
     with paramiko.SSHClient() as client:
 
-        LINUX_COMMAND = "mysql -u " + str(mysqluser) + " -p " + str(mysqlpass) + " -h " + str(HOSTNAME) + " < " + str(mysqlname)
+        #LINUX_COMMAND = "mysql -u " + str(mysqluser) + " -p " + str(mysqlpass) + " -h " + str(HOSTNAME) + " < " + str(mysqlname)
+        if mysqluser == "root" or mysqlpass == "":
+            LINUX_COMMAND = "mysql -u " + " < /etc/" + str(mysqlname)
+        else:
+            LINUX_COMMAND = "mysql -u " + str(mysqluser) + " -p " + str(mysqlpass) + " -h " + str(HOSTNAME) + " < " + "/etc/" + str(mysqlname)
         print(LINUX_COMMAND)
 
         client = paramiko.SSHClient()
