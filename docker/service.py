@@ -220,6 +220,65 @@ def apache():
     time.sleep(1)
 
 
+        with paramiko.SSHClient() as client:
+        client = paramiko.SSHClient()
+        client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+        client.connect(hostname=aphostip, port=22, username=apuser, password=appass)
+
+            with scp.SCPClient(sshc.get_transport()) as scpc:
+                scpc.get(
+                  remote_path='/var/www.zip',
+                  local_path='/etc/',
+                  recursive=True, #再帰的に転送するならTrue
+                  preserve_times=True #mtimeとatimeを保存したいならTrue
+                )
+    time.sleep(1)
+
+
+        with paramiko.SSHClient() as client:
+        client = paramiko.SSHClient()
+        client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+        client.connect(hostname=aphostip, port=22, username=apuser, password=appass)
+
+            with scp.SCPClient(sshc.get_transport()) as scpc:
+                scpc.get(
+                  remote_path='/etc/apache2/sites.zip',
+                  local_path='/etc/',
+                  recursive=True, #再帰的に転送するならTrue
+                  preserve_times=True #mtimeとatimeを保存したいならTrue
+                )
+    time.sleep(1)
+
+        with paramiko.SSHClient() as client:
+        client = paramiko.SSHClient()
+        client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+        client.connect(hostname=HOSTNAME, port=22, username=USERNAME, password=PASSWORD)
+
+            with scp.SCPClient(sshc.get_transport()) as scpc:
+                scpc.put(
+                  files='/etc/www.zip',
+                  remote_path='/var/',
+                  recursive=True, #再帰的に転送するならTrue
+                  preserve_times=True #mtimeとatimeを保存したいならTrue
+                )
+    time.sleep(1)
+
+
+        with paramiko.SSHClient() as client:
+        client = paramiko.SSHClient()
+        client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+        client.connect(hostname=HOSTNAME, port=22, username=USERNAME, password=PASSWORD)
+
+            with scp.SCPClient(sshc.get_transport()) as scpc:
+                scpc.put(
+                  files='/etc/sites.zip',
+                  remote_path='/etc/apache2/',
+                  recursive=True, #再帰的に転送するならTrue
+                  preserve_times=True #mtimeとatimeを保存したいならTrue
+                )
+    time.sleep(1)
+
+
 
 
 #======================================= main ===============================================================
