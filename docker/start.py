@@ -92,8 +92,8 @@ def result_exist():
 			print(file)
 		if is_file:
 			is_size = os.path.getsize(path)
-			print("ファイルが作成されました")
 			if is_size != 0:
+				print("ファイルが作成されました")
 				os.system('cat ./share/result.txt')
 				break
 		else:
@@ -103,11 +103,12 @@ def result_exist():
 
 
 def result_mg_exist():
-	path = "./share/mg_result.txt"
-	is_file = os.path.isfile(path)
-	print(is_file)
-	files = glob.glob("./share/*")
 	while True:
+		path = "./share/mg_result.txt"
+		is_file = os.path.isfile(path)
+		print(is_file)
+		files = glob.glob("./share/*")
+
 		for file in files:
 			print(file)
 		if is_file:
@@ -120,6 +121,7 @@ def result_mg_exist():
 		else:
 			pass
 		print("マージファイルの待機中")
+		time.sleep(5)
 
 
 
