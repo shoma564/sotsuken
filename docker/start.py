@@ -106,6 +106,8 @@ def result_mg_exist():
 		if is_file:
 			is_size = os.path.getsize(path)
 			print("マージファイルの作成を検出")
+			print("\n\n\n移行フェーズ")
+			os.system('python3 service.py')
 			if is_size != 0:
 				break
 		else:
