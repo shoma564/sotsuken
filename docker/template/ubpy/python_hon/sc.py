@@ -55,6 +55,7 @@ with paramiko.SSHClient() as client:
 
 
 def result_exist():
+    time.sleep(30)
     while True:
         path = "./share/result.txt"
         is_file = os.path.isfile(path)

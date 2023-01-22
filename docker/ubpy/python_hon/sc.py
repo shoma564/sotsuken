@@ -55,6 +55,7 @@ with paramiko.SSHClient() as client:
 
 
 def result_exist():
+    time.sleep(30)
     while True:
         path = "./share/result.txt"
         is_file = os.path.isfile(path)
@@ -74,6 +75,7 @@ def result_exist():
 
         print("マージ元ファイルの待機中")
         time.sleep(5)
+
 
     filenames = ["./share/result1.txt", "./share/result.txt"]
     with open("./share/mg_result.txt", "w") as new_file:

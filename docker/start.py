@@ -1,4 +1,10 @@
 import os, shutil, time, glob
+from pyfiglet import Figlet
+
+f = Figlet(font="big")
+msg = f.renderText("Automatic Migration")
+print(msg)
+
 
 def shoki():
 	os.system('./template/reset.sh')
