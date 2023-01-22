@@ -55,11 +55,12 @@ with paramiko.SSHClient() as client:
 
 
 def result_exist():
-    path = "./share/result.txt"
-    is_file = os.path.isfile(path)
-    print(is_file)
-    files = glob.glob("./share/*")
     while True:
+        path = "./share/result.txt"
+        is_file = os.path.isfile(path)
+        print(is_file)
+        files = glob.glob("./share/*")
+
         for file in files:
             print(file)
         if is_file:
@@ -80,7 +81,6 @@ def result_exist():
             with open(name) as f:
                 for line in f:
                     new_file.write(line)
-
                 new_file.write("\n")
 
 
