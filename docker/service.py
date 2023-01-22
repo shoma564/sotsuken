@@ -1,4 +1,4 @@
-import time, paramiko
+import time, paramiko, scp
 HOSTNAME = ""
 USERNAME = ""
 PASSWORD = ""
@@ -6,7 +6,9 @@ hostip = ""
 mysqluser = ""
 mysqlname = ""
 mysqlpass = ""
-
+aphostip = ""
+appass = "" 
+apuser = ""
 
 
 print("検出サービスの整理中")
@@ -160,12 +162,14 @@ def mysql():
     time.sleep(1)
 
 
-def apache()
-    global HOSTNAME, USERNAME, PASSWORD, aphostip, appass
+def apache():
+    global HOSTNAME, USERNAME, PASSWORD, aphostip, appass, apuser
 
     print("apacheの移行を開始します。")
     print("apacheが動いているIPアドレス")
     aphostip = input(">>> ")
+    print("apacheが動いているホストのユーザー")
+    apuser = input(">>>")
     print("apacheが動いているホストのパスワード")
     appass = input(">>> ")
 
@@ -176,6 +180,37 @@ def apache()
         client = paramiko.SSHClient()
         client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
         client.connect(hostname=HOSTNAME, port=22, username=USERNAME, password=PASSWORD)
+
+        stdin, stdout, stderr = client.exec_command(LINUX_COMMAND)
+
+    for line in stdout:
+        print(line, end='')
+
+    time.sleep(1)
+
+        with paramiko.SSHClient() as client:
+        LINUX_COMMAND = "zip -r /var/www.zip /var/www"
+        print(LINUX_COMMAND)
+
+        client = paramiko.SSHClient()
+        client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+        client.connect(hostname=aphostip, port=22, username=apuser, password=appass)
+
+        stdin, stdout, stderr = client.exec_command(LINUX_COMMAND)
+
+    for line in stdout:
+        print(line, end='')
+
+    time.sleep(1)
+
+
+        with paramiko.SSHClient() as client:
+        LINUX_COMMAND = "zip -r /etc/apache2/sites.zip /etc/apache2/sites-available/"
+        print(LINUX_COMMAND)
+
+        client = paramiko.SSHClient()
+        client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+        client.connect(hostname=aphostip, port=22, username=apuser, password=appass)
 
         stdin, stdout, stderr = client.exec_command(LINUX_COMMAND)
 
