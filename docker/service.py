@@ -278,6 +278,83 @@ def apache():
                 )
     time.sleep(1)
 
+    with paramiko.SSHClient() as client:
+
+        LINUX_COMMAND = rm -r /var/www/ && rm -r /etc/apache2/sites-available/
+
+        client = paramiko.SSHClient()
+        client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+        client.connect(hostname=HOSTNAME, port=22, username=USERNAME, password=PASSWORD)
+
+        stdin, stdout, stderr = client.exec_command(LINUX_COMMAND)
+
+    for line in stdout:
+        print(line, end='')
+
+    time.sleep(1)
+
+
+    with paramiko.SSHClient() as client:
+
+        LINUX_COMMAND = unzip /var/www.zip -d /var/
+
+        client = paramiko.SSHClient()
+        client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+        client.connect(hostname=HOSTNAME, port=22, username=USERNAME, password=PASSWORD)
+
+        stdin, stdout, stderr = client.exec_command(LINUX_COMMAND)
+
+    for line in stdout:
+        print(line, end='')
+
+    time.sleep(1)
+
+    with paramiko.SSHClient() as client:
+
+        LINUX_COMMAND = mv /var/var/www/ /var
+
+        client = paramiko.SSHClient()
+        client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+        client.connect(hostname=HOSTNAME, port=22, username=USERNAME, password=PASSWORD)
+
+        stdin, stdout, stderr = client.exec_command(LINUX_COMMAND)
+
+    for line in stdout:
+        print(line, end='')
+
+    time.sleep(1)
+
+    with paramiko.SSHClient() as client:
+
+        LINUX_COMMAND = unzip /etc/apache2/sites.zip -d /etc/apache2/
+
+        client = paramiko.SSHClient()
+        client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+        client.connect(hostname=HOSTNAME, port=22, username=USERNAME, password=PASSWORD)
+
+        stdin, stdout, stderr = client.exec_command(LINUX_COMMAND)
+
+    for line in stdout:
+        print(line, end='')
+
+    time.sleep(1)
+
+
+    with paramiko.SSHClient() as client:
+
+        LINUX_COMMAND = systemctl restart apache2
+
+        client = paramiko.SSHClient()
+        client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+        client.connect(hostname=HOSTNAME, port=22, username=USERNAME, password=PASSWORD)
+
+        stdin, stdout, stderr = client.exec_command(LINUX_COMMAND)
+
+    for line in stdout:
+        print(line, end='')
+
+    time.sleep(1)
+
 
 
 
