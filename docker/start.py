@@ -111,6 +111,7 @@ def result_exist():
 
 
 def result_mg_exist():
+	time.sleep(30)
 	while True:
 		path = "./share/mg_result.txt"
 		is_file = os.path.isfile(path)

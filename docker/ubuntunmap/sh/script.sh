@@ -6,7 +6,7 @@ touch /etc/result.txt
 chmod 777 /etc/nmap.txt
 chmod 777 /etc/result.txt
 
-nmap -T4 -A 0.0.0.0 >> /etc/nmap.txt
+nmap -T4 -A 172.24.20.101 >> /etc/nmap.txt
 grep 'tcp' /etc/nmap.txt > /etc/result.txt
 cat /etc/result.txt
 cp /etc/result.txt /etc/share/

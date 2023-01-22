@@ -3,9 +3,9 @@ import paramiko, time, socket, os, glob
 time.sleep(10)
 with paramiko.SSHClient() as client:
 
-    HOSTNAME = '0.0.0.0'
-    USERNAME = 'qwertyuser'
-    PASSWORD = 'qwertypass'
+    HOSTNAME = '172.24.20.101'
+    USERNAME = 'root'
+    PASSWORD = 'hiyiir'
     LINUX_COMMAND = 'pwd'
 
     client = paramiko.SSHClient()
@@ -57,7 +57,7 @@ with paramiko.SSHClient() as client:
 def result_exist():
     time.sleep(30)
     while True:
-        path = "./share/result.txt"
+        path = "/etc/share/result.txt"
         is_file = os.path.isfile(path)
         print(is_file)
         files = glob.glob("./share/*")
@@ -67,7 +67,7 @@ def result_exist():
         if is_file:
             is_size = os.path.getsize(path)
             if is_size != 0:
-                os.system('cat ./share/result.txt')
+                os.system('cat /etc/share/result.txt')
                 print("ファイルが作成されました。")
                 break
             else:
@@ -77,8 +77,8 @@ def result_exist():
         time.sleep(5)
 
 
-    filenames = ["./share/result1.txt", "./share/result.txt"]
-    with open("./share/mg_result.txt", "w") as new_file:
+    filenames = ["/etc/share/result1.txt", "/etc/share/result.txt"]
+    with open("/etc/share/mg_result.txt", "w") as new_file:
         for name in filenames:
             with open(name) as f:
                 for line in f:
