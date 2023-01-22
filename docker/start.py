@@ -4,6 +4,8 @@ from pyfiglet import Figlet
 f = Figlet(font="big")
 msg = f.renderText("Automatic Migration")
 print(msg)
+print("\n\n1. 移行先ユーザーはrootを指定する方が移行に失敗しにくいです。\n2. その場合、sshでrootログイン許可を付与してください。\n\n\n")
+
 
 
 def shoki():
