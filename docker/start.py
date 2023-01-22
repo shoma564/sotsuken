@@ -119,7 +119,7 @@ def result_mg_exist():
 
 
 
-
+shoki()
 install()
 scan()
 docker()
