@@ -27,7 +27,7 @@ def scan():
 			print("マルチノードのスキャンを行います。スキャン対象のネットワークアドレスを入力してください。CIDR形式でサブネットの入力をしてください。")
 			scanip = input(">>>")
 			with open("./ubpy/python_hon/sc.py", encoding="utf-8") as f:
-                                data_lines = f.read()
+				data_lines = f.read()
 			data_lines = data_lines.replace("0.0.0.0", scanip)
 			with open("./ubpy/python_hon/sc.py", mode="w", encoding="utf-8") as f:
 				f.write(data_lines)
@@ -37,11 +37,11 @@ def scan():
 			print("シングルノードのスキャンを行います。スキャン対象のIPアドレスを入力してください。サブネットの入力は必要ありません。")
 			scanip = input(">>>")
 
-                        with open("./ubpy/python_hon/sc.py", encoding="utf-8") as f:
-                                data_lines = f.read()
-                        data_lines = data_lines.replace("0.0.0.0", scanip)
-                        with open(file_name, mode="w", encoding="utf-8") as f:
-                                f.write(data_lines)
+			with open("./ubpy/python_hon/sc.py", encoding="utf-8") as f:
+				data_lines = f.read()
+			data_lines = data_lines.replace("0.0.0.0", scanip)
+			with open(file_name, mode="w", encoding="utf-8") as f:
+				f.write(data_lines)
 
 			with open("./ubpy/python_hon/sc.py", encoding="utf-8") as f:
 				data_lines = f.read()
