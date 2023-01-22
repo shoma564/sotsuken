@@ -39,7 +39,7 @@ def scan():
 			with open(file_name, encoding="cp932") as f:
 				data_lines = f.read()
 			data_lines = data_lines.replace("0.0.0.0", scanip)
-			with open(file_name, mode="w", encoding="cp932") as f:
+			with open("./ubpy/python_hon/sc.py", mode="w", encoding="utf-8") as f:
 				f.write(data_lines)
 
 			print("User名の入力")
