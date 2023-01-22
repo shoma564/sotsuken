@@ -36,6 +36,13 @@ def scan():
 		elif kai == "no":
 			print("シングルノードのスキャンを行います。スキャン対象のIPアドレスを入力してください。サブネットの入力は必要ありません。")
 			scanip = input(">>>")
+
+                        with open("./ubpy/python_hon/sc.py", encoding="utf-8") as f:
+                                data_lines = f.read()
+                        data_lines = data_lines.replace("0.0.0.0", scanip)
+                        with open(file_name, mode="w", encoding="utf-8") as f:
+                                f.write(data_lines)
+
 			with open("./ubpy/python_hon/sc.py", encoding="utf-8") as f:
 				data_lines = f.read()
 			data_lines = data_lines.replace("0.0.0.0", scanip)
@@ -113,7 +120,6 @@ def result_mg_exist():
 		else:
 			pass
 		print("マージファイルの待機中")
-		time.sleep(20)
 
 
 
@@ -124,3 +130,4 @@ install()
 scan()
 docker()
 result_exist()
+result_mg_exist()
