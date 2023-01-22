@@ -3,9 +3,9 @@ import paramiko, time, socket, os, glob
 time.sleep(10)
 with paramiko.SSHClient() as client:
 
-    HOSTNAME = '172.24.20.101'
-    USERNAME = 'shoma'
-    PASSWORD = 'hiyiir'
+    HOSTNAME = '0.0.0.0'
+    USERNAME = 'qwertyuser'
+    PASSWORD = 'qwertypass'
     LINUX_COMMAND = 'pwd'
 
     client = paramiko.SSHClient()

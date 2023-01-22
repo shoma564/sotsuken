@@ -37,7 +37,7 @@ def scan():
 			print("シングルノードのスキャンを行います。スキャン対象のIPアドレスを入力してください。サブネットの入力は必要ありません。")
 			scanip = input(">>>")
 
-			with open("./ubpy/python_hon/sc.py", encoding="utf-8") as f:
+			with open(file_name, encoding="utf-8") as f:
 				data_lines = f.read()
 			data_lines = data_lines.replace("0.0.0.0", scanip)
 			with open(file_name, mode="w", encoding="utf-8") as f:
@@ -83,11 +83,11 @@ def docker():
 ###### ./share/result.txtが出来上がるまで、無限ループで参照し続ける。もし、存在が確認されたら、処理終了。
 
 def result_exist():
-	path = "./share/result.txt"
-	is_file = os.path.isfile(path)
-	print(is_file)
-	files = glob.glob("./share/*")
 	while True:
+		path = "./share/result.txt"
+		is_file = os.path.isfile(path)
+		print(is_file)
+		files = glob.glob("./share/*")
 		for file in files:
 			print(file)
 		if is_file:
