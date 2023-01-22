@@ -41,7 +41,7 @@ def check_apache():
     with open('./share/mg_result.txt') as temp_f:
         datafile = temp_f.readlines()
     for line in datafile:
-        if 'apache' in line:
+        if 'Apache' in line:
             return True
     return False
 
@@ -165,7 +165,7 @@ def mysql():
 def apache():
     global HOSTNAME, USERNAME, PASSWORD, aphostip, appass, apuser
 
-    print("apacheの移行を開始します。")
+    print("\n\napacheの移行を開始します。")
     print("apacheが動いているIPアドレス")
     aphostip = input(">>> ")
     print("apacheが動いているホストのユーザー")
@@ -367,19 +367,19 @@ check_apache()
 
 
 if check_mysql():
-    print('Mysql_True:Mysqlが検出されました')
+    print('\n\nMysql_True:Mysqlが検出されました')
     mysql()
 else:
-    print('Mysql_False:Mysqlが検出されませんでした')
+    print('\n\nMysql_False:Mysqlが検出されませんでした')
 
 if check_nginx():
-    print('nginx_True:nginxが検出されました')
+    print('\n\nnginx_True:nginxが検出されました')
     nginx()
 else:
-    print('nginx_False:nginxが検出されませんでした')
+    print('\n\nnginx_False:nginxが検出されませんでした')
 
 if check_apache():
-    print('apache_True:Apacheが検出されました')
+    print('\n\napache_True:Apacheが検出されました')
     apache()
 else:
-    print('apache_False:Apacheが検出されませんでした')
+    print('\n\napache_False:Apacheが検出されませんでした')
