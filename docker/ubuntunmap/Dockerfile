@@ -1,4 +1,5 @@
-FROM ubuntu:20.04
+#FROM ubuntu:20.04
+FROM shomaigu/ubuntu-base
 ADD ./sh/script.sh /etc/
 RUN mkdir /etc/share/
 RUN apt-get -y update && apt-get -y upgrade
