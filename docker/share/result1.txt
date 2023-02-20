@@ -1,9 +1,9 @@
 Linux shoma 5.4.0-137-generic #154-Ubuntu SMP Thu Jan 5 17:03:22 UTC 2023 x86_64 x86_64 x86_64 GNU/Linux
 NAME="Ubuntu"
-VERSION="20.04.5 LTS (Focal Fossa)"
+VERSION="20.04 LTS (Focal Fossa)"
 ID=ubuntu
 ID_LIKE=debian
-PRETTY_NAME="Ubuntu 20.04.5 LTS"
+PRETTY_NAME="Ubuntu 20.04 LTS"
 VERSION_ID="20.04"
 HOME_URL="https://www.ubuntu.com/"
 SUPPORT_URL="https://help.ubuntu.com/"
@@ -12,6 +12,6 @@ PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-poli
 VERSION_CODENAME=focal
 UBUNTU_CODENAME=focal
 shoma
-MemTotal:        8050388 kB
+MemTotal:        8050392 kB
 processor	: 0
 processor	: 1

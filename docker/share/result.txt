@@ -1,4 +1,4 @@
 22/tcp   open  ssh     OpenSSH 8.2p1 Ubuntu 4ubuntu0.5 (Ubuntu Linux; protocol 2.0)
-80/tcp   open  http    Werkzeug/2.2.2 Python/3.8.10
-3306/tcp open  mysql?
-TRACEROUTE (using port 5900/tcp)
+80/tcp   open  http    Apache httpd 2.4.41 ((Ubuntu))
+3306/tcp open  mysql   MySQL (unauthorized)
+TRACEROUTE (using port 993/tcp)
